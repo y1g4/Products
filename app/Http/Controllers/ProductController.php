@@ -16,6 +16,21 @@ class ProductController extends Controller
 
         $request->validated();
         
+        $validator = Validator::make($request->all(),[
+            'name'=>['required|min:3|max:255|string'],
+            'description'=>'required|string',
+            'price'=>'required|string',
+            'stock'=>'required|string',
+            'is_active'=>'sometimes',
+        ]);
+        
+
+        
+
+    }
+}
+
+
 // $validator = Validator::make($request->all(), [
 //     'name' => ['required', 'min:3', 'max:255', 'string'],
 //     'description' => 'required|string',
@@ -30,10 +45,6 @@ class ProductController extends Controller
 // if ($validator->fails()) {
 //     return redirect()->back()->withErrors($validator)->withInput();
 // }
-
-    }
-}
-
 
     //     $request->validate([
     //         'name'=>'required|min:3|max:255|string',

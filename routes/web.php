@@ -5,6 +5,8 @@ use App\Models\Product;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\CategoryController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('categories', [App\Http\Controllers\CategoryController::class, 'index']);
+Route::get('categories/create', [App\Http\Controllers\CategoryController::class, 'create']);
+Route::post('categories/create', [App\Http\Controllers\CategoryController::class, 'store']);
+
 
 Route::get('products', function(){
     return Product::get();
