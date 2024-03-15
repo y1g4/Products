@@ -42,9 +42,11 @@
                             <div class="mb-3">
                                 <label>Is_active</label>
                                 <input type="checkbox" name="is_active"
-                                    value="{{ old('is_active') == true ? checked:'' }}">
+                                    {{ old('is_active') == true ? checked:'' }}/>
                                 @error('is_active')<span class="text-danger">{{ $message }}</span>@enderror
                             </div>
+
+
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-primary">Save</button>
                             </div>

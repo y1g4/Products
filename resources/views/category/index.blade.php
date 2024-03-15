@@ -33,7 +33,16 @@
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->description }}</td>
-                                    <td>{{ $item->is_active }}</td>
+                                    
+                                    <td>
+                                        
+                                            @if ($item->is_active)
+                                                Active
+                                            @else
+                                                In-Active
+                                            @endif
+                                       
+                                    </td>
                                     <td>
                                         <a href="{{ url('categories/'.$item->id.'/edit') }}" class="btn btn-success mx-2">Edit</a>
                                         <a href="{{ url('categories/'.$item->id.'/delete') }}" class="btn btn-danger mx-2">Delete</a>

@@ -32,20 +32,24 @@
 
                             </div>
 
+                           
+
                             <div class="mb-3">
                                 <label>Description</label>
-                                <textarea name="description" class="form-control" rows="3" {{
-                                    $category->description}}></textarea>
+                                <textarea name="description" class="form-control" rows="3">{{ $category->description }}</textarea>
                                 @error('description')<span class="text-danger">{{ $message }}</span>@enderror
-
                             </div>
+                            
 
                             <div class="mb-3">
                                 <label>Is_active</label>
+                                <input type="checkbox" name="is_active" {{ $category->is_active == true ? checked:'' }}>
                                 <input type="checkbox" name="is_active"
-                                    value="{{ $category->is_active == true ? 'checked':'' }}">
+                                    {{ $category->is_active == true ? checked:'' }}/>
                                 @error('is_active')<span class="text-danger">{{ $message }}</span>@enderror
                             </div>
+
+
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </div>
