@@ -23,6 +23,7 @@
                                     <th>ID</th>
                                     <th>Name</th>
                                     <th>Description</th>
+                                    <th>Image</th>
                                     <th>Is active</th>
                                 </tr>
                             </thead>
@@ -33,7 +34,10 @@
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->description }}</td>
-                                    
+
+                                                                   <td>
+                                        <img src="{{ asset($item->image) }}" style="width: 70px; height: 70px;" alt="Img">
+                                    </td>
                                     <td>
                                         
                                             @if ($item->is_active)

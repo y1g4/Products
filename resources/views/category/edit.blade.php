@@ -18,10 +18,8 @@
                         </h4>
                     </div>
 
-
-
                     <div class="card-body">
-                        <form action="{{ url('categories/'.$category->id.'/edit') }}" method="POST">
+                        <form action="{{ url('categories/'.$category->id.'/edit') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 
@@ -32,9 +30,7 @@
 
                             </div>
 
-                           
-
-                            <div class="mb-3">
+                                    <div class="mb-3">
                                 <label>Description</label>
                                 <textarea name="description" class="form-control" rows="3">{{ $category->description }}</textarea>
                                 @error('description')<span class="text-danger">{{ $message }}</span>@enderror
@@ -43,12 +39,13 @@
 
                             <div class="mb-3">
                                 <label>Is_active</label>
-                                <input type="checkbox" name="is_active" {{ $category->is_active == true ? checked:'' }}>
-                                <input type="checkbox" name="is_active"
-                                    {{ $category->is_active == true ? checked:'' }}/>
+                                <input type="checkbox" name="is_active" {{ $category->is_active == true ? 'checked':'' }} />
                                 @error('is_active')<span class="text-danger">{{ $message }}</span>@enderror
                             </div>
-
+                            <div class="mb-3">
+                                <label>File/Image</label>
+                                <input type="file" name="image" class="form-control"/>
+                            </div>
 
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-primary">Update</button>
